@@ -39,3 +39,4 @@ end
 
 
 # Custom Gems
+gem 'devise'
