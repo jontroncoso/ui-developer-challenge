@@ -11,18 +11,20 @@ var appChallenge = angular.module('appChallenge', [])
       });
     };
     $scope.extractAndShowMessages = function (data) {
+      // General errors. If we were to implement login functionality, those messages would be general messages, not element-specific.
       if (typeof data == 'object' && typeof data.messages == 'object' && data.messages.length > 0) {
         $.each(data.messages, function (i, e) {
           alert(e[1]);
         });
       }
+      // Errors specific to form elements
       if (typeof data == 'object' && typeof data.errors == 'object' && Object.keys(data.errors).length > 0) {
         $.each(data.errors, function (i, e) {
           var elem = $('[name="user[' + i + ']"]');
           var parent = elem.parents('.input-field').addClass('invalid');
           var labelText = parent.children('label').text();
           $.each(e, function () {
-            $('<span></span>').addClass('red-text').text(labelText + ' ' + this).insertAfter(elem);
+            $('<span></span>').text(labelText + ' ' + this).insertAfter(elem);
           });
         });
       }
@@ -43,7 +45,7 @@ var appChallenge = angular.module('appChallenge', [])
 
     $scope.init();
   }])
-  .service('User', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
+  .service('User', ['$http', '$q', function ($http, $q) {
     var User = this;
     User.create = function (formData) {
       var args = formData;
@@ -57,7 +59,6 @@ var appChallenge = angular.module('appChallenge', [])
           defer.reject(error);
         });
       return defer.promise;
-
     }
   }]);
 
