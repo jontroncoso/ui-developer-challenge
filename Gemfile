@@ -13,15 +13,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Not a fan of coffeescript. Though I could get familiar if it was important
 # gem 'coffee-rails', '~> 4.1.0'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -39,4 +30,7 @@ end
 
 
 # Custom Gems
+gem 'angularjs-rails'
 gem 'devise'
+gem 'materialize-sass'
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appChallenge">
 <head>
   <title>UiDeveloperChallenge</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,17 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="messages">
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+<div class="container" ng-controller="UserCtrl">
+  <% if notice || alert %>
+    <div class="messages row">
+      <% if notice %>
+        <p class="alert alert-success col s12"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger col s12"><%= alert %></p>
+      <% end %>
+    </div>
   <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+
+
+  <%= yield %>
 </div>
-
-
-<%= yield %>
 
 </body>
 </html>

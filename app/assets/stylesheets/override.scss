@@ -1,0 +1,33 @@
+// I would never set this up this way, but I don't have time to set it up correctly. What I would do, is work with designers to get a color palette going. then I would use colors from the palette. But materialize is dumb (or more likely, I'm currently ignorant), and doesn't allow for customizing the way that I am used to.
+// I've never used materialize before today and as it is, I've already wasted too much time trying to study materialize
+
+.btn, .btn-large, .btn-flat {
+  border-radius: 1px !important;
+  text-transform: none !important;
+  &.green {
+    background-color: #18C96E !important;
+  }
+  &.grey-text.white {
+    border: 1px solid rgba(41, 70, 97, 0.3) !important;
+  }
+}
+
+.btn-large {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.invalid {
+  input{
+    @extend .invalid;
+  }
+  label {
+    @extend .red-text;
+  }
+  span {
+    color: color('red', 'lighten-2');
+    font-size: 0.75em;
+    margin-top: -5px;
+
+  }
+}
