@@ -1,33 +1,85 @@
-// I would never set this up this way, but I don't have time to set it up correctly. What I would do, is work with designers to get a color palette going. then I would use colors from the palette. But materialize is dumb (or more likely, I'm currently ignorant), and doesn't allow for customizing the way that I am used to.
-// I've never used materialize before today and as it is, I've already wasted too much time trying to study materialize
 
-.btn, .btn-large, .btn-flat {
-  border-radius: 1px !important;
-  text-transform: none !important;
-  &.green {
-    background-color: #18C96E !important;
+html {
+  font-family: Helvetica,Verdana,sans-serif;
+  color: $sg-black;
+}
+.input-field {
+  input {
+    box-shadow: none !important;
   }
-  &.grey-text.white {
-    border: 1px solid rgba(41, 70, 97, 0.3) !important;
+  label {
+    color: $label-font-color;
+    font-weight: 100;
   }
 }
+h1,
+h2,
+h3,
+.btn,
+.btn-flat{
+  font-weight: 100;
+}
 
-.btn-large {
+.btn,.btn-flat {
+  box-shadow: none;
+  border-radius: 1px !important;
+  text-transform: none !important;
+}
+.btn {
   padding-left: 50px;
   padding-right: 50px;
 }
+.section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+form {
+  perspective: 800px;
 
-.invalid {
-  input{
-    @extend .invalid;
-  }
-  label {
-    @extend .red-text;
-  }
-  span {
-    color: color('red', 'lighten-2');
-    font-size: 0.75em;
-    margin-top: -5px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.input-field {
+  transform: translateX(100%) rotateY(100deg);
 
+  transition: transform 0.5s;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+
+  .reveal-form & {
+    transform: translateX(0%) rotateY(0deg);
+    &:nth-of-type(2) {
+      transition-delay: 50ms, 50ms;
+    }
+    &:nth-of-type(3) {
+      transition-delay: 100ms, 100ms;
+    }
+    &:nth-of-type(4) {
+      transition-delay: 150ms, 150ms;
+    }
+    &:nth-of-type(5) {
+      transition-delay: 200ms, 200ms;
+    }
+    &:nth-of-type(6) {
+      transition-delay: 250ms, 250ms;
+    }
+    &:nth-of-type(7) {
+      transition-delay: 300ms, 300ms;
+    }
+    &:nth-of-type(8) {
+      transition-delay: 350ms, 350ms;
+    }
   }
 }

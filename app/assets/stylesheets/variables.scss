@@ -1,0 +1,33 @@
+$sg-black:        rgba(41,70,97,1);
+$sg-grey-dark:    rgba(41,70,97,0.6);
+$sg-grey:         rgba(41,70,97,0.5);
+$sg-grey-light:   rgba(41,70,97,0.3);
+$sg-grey-lighter: rgba(41,70,97,0.2);
+$sg-green:        rgba(24,201,110,1);
+$sg-green-light:  rgba(24,201,110,0.5);
+$sg-blue:         rgb(26,130,226);
+$sg-red:          rgb(227,17,27);
+
+/*** Buttons ***/
+$button-color: $sg-green;
+$button-color-flat: $sg-grey-dark;
+$button-height: 50px;
+
+
+
+/*** Forms ***/
+// Text Inputs + Textarea
+$input-border-color: $sg-grey-lighter;
+$input-error-color: $sg-red;
+$input-success-color: $sg-green;
+$input-focus-color: $sg-blue;
+$label-font-color: $sg-grey;
+
+//*** Global ***/
+// Media Query Ranges
+$small-screen-up: 601px;
+$medium-screen-up: 993px;
+$large-screen-up: 1201px;
+$small-screen: 600px;
+$medium-screen: 992px;
+$large-screen: 1200px;

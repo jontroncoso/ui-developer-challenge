@@ -1,6 +1,94 @@
-// Place all the styles related to the challenges controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import "materialize/components/color";
-@import 'override';
+@import 'variables';
 @import 'materialize';
+@import 'override';
+
+// Custom Classes
+.invalid {
+  input{
+    @extend .invalid;
+  }
+  label {
+    @extend .red-text !optional;
+  }
+  span {
+    color: color('red', 'lighten-2');
+    font-size: 0.75em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+  }
+}
+.btn-plain {
+  @extend .btn-flat;
+  margin-left: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid $sg-grey-light !important;
+  color: $sg-grey-dark;
+  &:focus {
+    background-color: transparent;
+  }
+  &:hover {
+    @extend .z-depth-1-half;
+  }
+}
+
+.flip-with-form {
+  transform: translateY(100%) rotateX(-100deg);
+
+  transition: transform 0.5s ease-out;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+
+  .reveal-form & {
+    transform: translateY(0%) rotateX(0deg);
+    transition-delay: 500ms;
+  }
+}
+.reveal-with-form {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+
+  .reveal-form & {
+    opacity: 1;
+  }
+}
+.plan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// Modals
+#plans-modal {
+  background-color: transparent;
+  .bronze .card-title {
+    color: #763c0c;
+  }
+  .silver .card-title {
+    color: #97a1b7;
+  }
+  .gold .card-title {
+    color: #f3be3b;
+  }
+  .platinum .card-title {
+    color: #496e96;
+  }
+}

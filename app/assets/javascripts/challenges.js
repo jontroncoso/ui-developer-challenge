@@ -62,7 +62,12 @@ var appChallenge = angular.module('appChallenge', [])
     }
   }]);
 
-
+$(window).load(function(){
+  setTimeout(function(){
+    $('body').addClass('reveal-form');
+  }, 500);
+  $('.modal-trigger').leanModal();
+});
 // // VERY FRUSTRATING!
 // // I thought I could force materialize to do a tooltip programatically. I could not... sad day
 //$.fn.materializeTooltip = function (message) {
