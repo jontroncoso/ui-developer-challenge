@@ -25,6 +25,10 @@ module UiDeveloperChallenge
     config.to_prepare do
       DeviseController.respond_to :json
     end
+    if Rails.env == 'test'
+      require 'diagnostic'
+      config.middleware.use(UiDeveloperChallenge::DiagnosticMiddleware)
+    end
 
   end
 end

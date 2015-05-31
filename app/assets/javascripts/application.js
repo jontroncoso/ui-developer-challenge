@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-//= require materialize-sprockets
+
+// materialize-sprockets is causing js errors in rspec only. seams to be an issue with waves.
+// This happens regardless of if I use a gem, or bring them in manually.
+//=# require materialize-sprockets
+//= require materialize/velocity.min
+//= require materialize/leanModal
+//=# require materialize/waves
+
 //= require jquery_ujs
 //= require turbolinks
 //= require angular

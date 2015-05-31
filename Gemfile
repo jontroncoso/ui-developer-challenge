@@ -33,4 +33,3 @@ end
 gem 'angularjs-rails'
 gem 'devise'
 gem 'materialize-sass'
-
