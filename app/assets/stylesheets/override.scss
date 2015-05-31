@@ -3,15 +3,6 @@ html {
   font-family: Helvetica,Verdana,sans-serif;
   color: $sg-black;
 }
-.input-field {
-  input {
-    box-shadow: none !important;
-  }
-  label {
-    color: $label-font-color;
-    font-weight: 100;
-  }
-}
 h1,
 h2,
 h3,
@@ -19,7 +10,9 @@ h3,
 .btn-flat{
   font-weight: 100;
 }
-
+h2 {
+  font-size: 2.6rem;
+}
 .btn,.btn-flat {
   box-shadow: none;
   border-radius: 1px !important;
@@ -34,6 +27,9 @@ h3,
   padding-bottom: 2rem;
 }
 form {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
   perspective: 800px;
 
   -webkit-transform-style: preserve-3d;
@@ -42,9 +38,15 @@ form {
   transform-style: preserve-3d;
 }
 .input-field {
+  -webkit-transform: translateX(100%) rotateY(100deg);
+  -moz-transform: translateX(100%) rotateY(100deg);
+  -ms-transform: translateX(100%) rotateY(100deg);
   transform: translateX(100%) rotateY(100deg);
 
-  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s, height 0.5s;
+  -moz-transition: -moz-transform 0.5s, height 0.5s;
+  -ms-transition: -ms-transform 0.5s, height 0.5s;
+  transition: transform 0.5s, height 0.5s;
 
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -55,31 +57,69 @@ form {
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -ms-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 
+  input {
+    box-shadow: none !important;
+  }
+  label {
+    color: $label-font-color;
+    font-weight: 100;
+  }
+
   .reveal-form & {
+    -webkit-transform: translateX(0%) rotateY(0deg);
+    -moz-transform: translateX(0%) rotateY(0deg);
+    -ms-transform: translateX(0%) rotateY(0deg);
     transform: translateX(0%) rotateY(0deg);
+
     &:nth-of-type(2) {
-      transition-delay: 50ms, 50ms;
+      -webkit-transition-delay: 50ms, 0ms;
+      -moz-transition-delay: 50ms, 0ms;
+      -ms-transition-delay: 50ms, 0ms;
+      transition-delay: 50ms, 0ms;
     }
     &:nth-of-type(3) {
-      transition-delay: 100ms, 100ms;
+      -webkit-transition-delay: 100ms, 0ms;
+      -moz-transition-delay: 100ms, 0ms;
+      -ms-transition-delay: 100ms, 0ms;
+      transition-delay: 100ms, 0ms;
     }
     &:nth-of-type(4) {
-      transition-delay: 150ms, 150ms;
+      -webkit-transition-delay: 150ms, 0ms;
+      -moz-transition-delay: 150ms, 0ms;
+      -ms-transition-delay: 150ms, 0ms;
+      transition-delay: 150ms, 0ms;
     }
     &:nth-of-type(5) {
-      transition-delay: 200ms, 200ms;
+      -webkit-transition-delay: 200ms, 0ms;
+      -moz-transition-delay: 200ms, 0ms;
+      -ms-transition-delay: 200ms, 0ms;
+      transition-delay: 200ms, 0ms;
     }
     &:nth-of-type(6) {
-      transition-delay: 250ms, 250ms;
+      -webkit-transition-delay: 250ms, 0ms;
+      -moz-transition-delay: 250ms, 0ms;
+      -ms-transition-delay: 250ms, 0ms;
+      transition-delay: 250ms, 0ms;
     }
     &:nth-of-type(7) {
-      transition-delay: 300ms, 300ms;
+      -webkit-transition-delay: 300ms, 0ms;
+      -moz-transition-delay: 300ms, 0ms;
+      -ms-transition-delay: 300ms, 0ms;
+      transition-delay: 300ms, 0ms;
     }
     &:nth-of-type(8) {
-      transition-delay: 350ms, 350ms;
+      -webkit-transition-delay: 350ms, 0ms;
+      -moz-transition-delay: 350ms, 0ms;
+      -ms-transition-delay: 350ms, 0ms;
+      transition-delay: 350ms, 0ms;
     }
   }
+  &:nth-child(even) {
+    clear: left;
+  }
+}
+.modal.bottom-sheet {
+  max-height: 80%;
 }

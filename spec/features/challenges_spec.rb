@@ -10,7 +10,6 @@ describe 'The Challenge' do
   end
 
   it 'toggles the plans' do
-    save_and_open_screenshot
     click_on 'Review Other Plans'
     expect(page).to have_content('$9.95')
   end

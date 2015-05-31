@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require angular
+//= require mutant-transition
 //= require_tree .

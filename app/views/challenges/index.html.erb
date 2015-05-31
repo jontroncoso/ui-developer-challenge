@@ -4,39 +4,38 @@
 
     <%= form_for :user, html: {'ng-submit': 'submitUser($event)', class: 'row'} do |f| %>
 
-    <h2 class="reveal-with-form col s12">Get Started for Free</h2>
+      <h2 class="reveal-with-form col s12">Get Started for Free</h2>
 
-    <div class="input-field col s12 m5">
-      <%= f.text_field :first_name, class: "validate", 'ng-model': 'user.first_name' %>
-      <%= f.label :first_name, "First Name" %>
-    </div>
-    <div class="input-field col s12 m5 offset-m2">
-      <%= f.text_field :last_name, class: "validate", data: {tooltip: 'asdasdasd'}, 'ng-model': 'user.last_name' %>
-      <%= f.label :last_name, "Last Name" %>
-    </div>
-    <div class="input-field col s12 m5">
-      <%= f.text_field :username, class: "validate", 'ng-model': 'user.username' %>
-      <%= f.label :username, "Username" %>
-    </div>
-    <div class="input-field col s12 m5 offset-m2">
-      <%= f.email_field :email, class: "validate", 'ng-model': 'user.email' %>
-      <%= f.label :email, "Email Address" %>
-    </div>
-    <div class="input-field col s12 m5">
-      <%= f.password_field :password, class: "validate", 'ng-model': 'user.password' %>
-      <%= f.label :password, "Password" %>
-    </div>
-    <div class="input-field col s12 m5 offset-m2">
-      <%= f.password_field :password_confirmation, class: "validate", 'ng-model': 'user.password_confirmation' %>
-      <%= f.label :password_confirmation, "Confirm Password" %>
-    </div>
-    <div class="col s12">
-      <div class="section flip-with-form">
-        <!-- Since these .btns are inline-blocks, they need to be flush against each other -->
-        <%= f.button 'Sign up', class: 'waves-effect waves-light btn' %>
-        <button class="waves-effect waves-light btn-plain modal-trigger" href="#plans-modal">Review Other Plans</button>
+      <div class="input-field col s12 m5" data-mutant-attributes="height">
+        <%= f.text_field :first_name, class: "validate", 'ng-model': 'user.first_name' %>
+        <%= f.label :first_name, "First Name" %>
       </div>
-    </div>
+      <div class="input-field col s12 m5 offset-m2" data-mutant-attributes="height">
+        <%= f.text_field :last_name, class: "validate", data: {tooltip: 'asdasdasd'}, 'ng-model': 'user.last_name' %>
+        <%= f.label :last_name, "Last Name" %>
+      </div>
+      <div class="input-field col s12 m5" data-mutant-attributes="height">
+        <%= f.text_field :username, class: "validate", 'ng-model': 'user.username' %>
+        <%= f.label :username, "Username" %>
+      </div>
+      <div class="input-field col s12 m5 offset-m2" data-mutant-attributes="height">
+        <%= f.email_field :email, class: "validate", 'ng-model': 'user.email' %>
+        <%= f.label :email, "Email Address" %>
+      </div>
+      <div class="input-field col s12 m5" data-mutant-attributes="height">
+        <%= f.password_field :password, class: "validate", 'ng-model': 'user.password' %>
+        <%= f.label :password, "Password" %>
+      </div>
+      <div class="input-field col s12 m5 offset-m2" data-mutant-attributes="height">
+        <%= f.password_field :password_confirmation, class: "validate", 'ng-model': 'user.password_confirmation' %>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+      </div>
+      <div class="col s12">
+        <div class="section flip-with-form">
+          <!-- Since these .btns are inline-blocks, they need to be flush against each other -->
+          <%= f.button 'Sign up', class: 'waves-effect waves-dark btn' %><button class="waves-effect waves-dark btn-plain modal-trigger" href="#plans-modal">Review Other Plans</button>
+        </div>
+      </div>
     <% end %>
   </div>
 
