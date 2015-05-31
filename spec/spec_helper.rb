@@ -11,13 +11,13 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
-  # config.after(:each) do |example|
-  #   Warden.test_reset!
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.after(:each) do |example|
+    Warden.test_reset!
+    DatabaseCleaner.clean
+  end
 
 end
