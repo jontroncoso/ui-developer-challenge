@@ -12,4 +12,13 @@ RSpec.describe User, type: :model do
     expect(user.username).to eq 'baaaam'
     expect(user.email).to eq 'phil@collins.info'
   end
+
+  it 'validates correctly' do
+    user = User.new
+    expect(user).to_not be_valid
+    expect(user.errors[:email]).to include("can't be blank")
+    expect(user.errors[:password]).to include("can't be blank")
+    expect(user.errors[:username]).to include("can't be blank")
+
+  end
 end
