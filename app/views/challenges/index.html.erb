@@ -5,8 +5,8 @@
     <%= form_for :user, html: {'ng-submit': 'submitUser($event)', class: 'row'} do |f| %>
 
       <div class="reveal-with-in">
-        <h1 class="lobster-text">Congratulations, {{user.first_name}}</h1>
-        <p>You are Logged in!!</p>
+        <h2>Congratulations, {{user.first_name}}</h2>
+        <h5>You are Logged in!!</h5>
         <p><a class="btn" href="#" ng-click="logout($event)">Logout</a></p>
       </div>
 
@@ -37,9 +37,9 @@
         <%= f.label :password_confirmation, "Confirm Password" %>
       </div>
       <div class="col s12">
-        <div class="section flip-with-out">
-          <!-- Since these .btns are inline-blocks, they need to be flush against each other -->
-          <%= f.button 'Sign up', class: 'waves-effect waves-dark btn' %><a class="waves-effect waves-dark btn-plain modal-trigger" href="#plans-modal">Review Other Plans</a>
+        <div class="section flip-with-out row">
+          <%= f.button 'Sign up', class: 'waves-effect waves-dark btn' %>
+          <a class="waves-effect waves-dark btn-plain modal-trigger" href="#plans-modal">Review Other Plans</a>
         </div>
       </div>
     <% end %>

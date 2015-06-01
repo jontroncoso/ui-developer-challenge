@@ -19,9 +19,11 @@ h2 {
   text-transform: none !important;
   line-height: 50px;
 }
-.btn {
-  padding-left: 50px;
-  padding-right: 50px;
+@media #{$medium-and-up} {
+  .btn {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 .section {
   padding-top: 2rem;
