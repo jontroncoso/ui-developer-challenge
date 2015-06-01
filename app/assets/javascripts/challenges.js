@@ -62,6 +62,9 @@ var appChallenge = angular.module('appChallenge', [])
           password_confirmation: ''
         };
         $scope.statusClass = 'logged-out';
+
+        // Reset Materialize to initial state
+        $('input').change();
       }
     }
     $scope.checkAuthentication = function () {
