@@ -33,3 +33,6 @@ end
 gem 'angularjs-rails'
 gem 'devise'
 gem 'materialize-sass'
+gem 'rails_12factor', group: :production
+
+ruby "2.2.2"
