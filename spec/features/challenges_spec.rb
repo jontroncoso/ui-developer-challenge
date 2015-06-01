@@ -34,6 +34,6 @@ describe 'The Challenge', js: true do
     fill_in 'Confirm Password', with: 'testpassword'
     click_on 'Sign up'
     expect(page).to_not have_errors
-    expect(page).to have_content('Congratulations')
+    expect(page).to have_content('Congratulations, John')
   end
 end

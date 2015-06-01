@@ -5,7 +5,7 @@
     <%= form_for :user, html: {'ng-submit': 'submitUser($event)', class: 'row'} do |f| %>
 
       <div class="reveal-with-in">
-        <h1 class="lobster-text">Congratulations</h1>
+        <h1 class="lobster-text">Congratulations, {{user.first_name}}</h1>
         <p>You are Logged in!!</p>
         <p><a class="btn" href="#" ng-click="logout($event)">Logout</a></p>
       </div>
