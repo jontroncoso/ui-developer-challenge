@@ -71,7 +71,6 @@ var appChallenge = angular.module('appChallenge', [])
       $scope.statusClass = '';
       User.retrieve()
         .then(function (data) {
-          console.log(data);
           $scope.applyAuthentication(data);
         })
     };
