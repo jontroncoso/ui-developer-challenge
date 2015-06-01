@@ -25,6 +25,7 @@ describe 'The Challenge', js: true do
   end
 
   it 'submits correctly', js:true do
+    expect(page).to_not have_content('Congratulations')
     fill_in 'First Name', with: 'John'
     fill_in 'Last Name', with: 'Smith'
     fill_in 'Username', with: 'johnsmith'

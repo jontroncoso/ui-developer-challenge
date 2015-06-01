@@ -9,6 +9,9 @@ var appChallenge = angular.module('appChallenge', [])
         password: '',
         password_confirmation: ''
       });
+      // controls what the user sees. not ideal, I should use angulars routes, but I'm doing this kindof quickly
+      $scope.statusClass = 'logged-out';
+      $scope.checkAuthentication();
     };
     $scope.extractAndShowMessages = function (data) {
       // General errors. If we were to implement login functionality, those messages would be general messages, not element-specific.
@@ -39,10 +42,44 @@ var appChallenge = angular.module('appChallenge', [])
       User.create({user: $scope.user})
         .then(function (data) {
           $scope.extractAndShowMessages(data);
+          $scope.applyAuthentication(data);
         }, $scope.extractAndShowMessages);
       $event.preventDefault();
     };
 
+    $scope.applyAuthentication = function (user) {
+      if (angular.isObject(user)) {
+        $scope.user = user;
+        $scope.statusClass = 'logged-in';
+      }
+      else {
+        $scope.user = {
+          first_name: '',
+          last_name: '',
+          username: '',
+          email: '',
+          password: '',
+          password_confirmation: ''
+        };
+        $scope.statusClass = 'logged-out';
+      }
+    }
+    $scope.checkAuthentication = function () {
+      $scope.statusClass = '';
+      User.retrieve()
+        .then(function (data) {
+          console.log(data);
+          $scope.applyAuthentication(data);
+        })
+    };
+    $scope.logout = function($event){
+      $scope.statusClass = '';
+      User.logout()
+        .then(function (data) {
+          $scope.applyAuthentication(data);
+        });
+      $event.preventDefault();
+    };
     $scope.init();
   }])
   .service('User', ['$http', '$q', function ($http, $q) {
@@ -59,15 +96,32 @@ var appChallenge = angular.module('appChallenge', [])
           defer.reject(error);
         });
       return defer.promise;
-    }
+    };
+    User.retrieve = function () {
+      var defer = $q.defer();
+      $http.get('/check-authentication', {headers: {'Accept': 'application/json'}})
+        .success(function (data) {
+          defer.resolve(data);
+        })
+        .error(function (error) {
+          defer.reject(error);
+        });
+      return defer.promise;
+    };
+    User.logout = function () {
+      var defer = $q.defer();
+      $http.delete('/users/sign_out', {headers: {'Accept': 'application/json'}})
+        .success(function (data) {
+          defer.resolve(data);
+        })
+        .error(function (error) {
+          defer.reject(error);
+        });
+      return defer.promise;
+    };
   }]);
 
-$(window).load(function(){
-  setTimeout(function(){
-    $('body').addClass('reveal-form');
-  }, 500);
-  $('.modal-trigger').leanModal();
-});
+
 // // VERY FRUSTRATING!
 // // I thought I could force materialize to do a tooltip programatically. I could not... sad day
 //$.fn.materializeTooltip = function (message) {

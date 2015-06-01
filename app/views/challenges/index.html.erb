@@ -1,10 +1,16 @@
-<div class="row">
+<div class="row" ng-class="statusClass">
   <div class="col s12 m8 offset-m2">
     <h1><img src="/assets/logo.png" alt="SendGrid"></h1>
 
     <%= form_for :user, html: {'ng-submit': 'submitUser($event)', class: 'row'} do |f| %>
 
-      <h2 class="reveal-with-form col s12">Get Started for Free</h2>
+      <div class="reveal-with-in">
+        <h1 class="lobster-text">Congratulations</h1>
+        <p>You are Logged in!!</p>
+        <p><a class="btn" href="#" ng-click="logout($event)">Logout</a></p>
+      </div>
+
+      <h2 class="reveal-with-out col s12">Get Started for Free</h2>
 
       <div class="input-field col s12 m5" data-mutant-attributes="height">
         <%= f.text_field :first_name, class: "validate", 'ng-model': 'user.first_name' %>
@@ -31,9 +37,9 @@
         <%= f.label :password_confirmation, "Confirm Password" %>
       </div>
       <div class="col s12">
-        <div class="section flip-with-form">
+        <div class="section flip-with-out">
           <!-- Since these .btns are inline-blocks, they need to be flush against each other -->
-          <%= f.button 'Sign up', class: 'waves-effect waves-dark btn' %><button class="waves-effect waves-dark btn-plain modal-trigger" href="#plans-modal">Review Other Plans</button>
+          <%= f.button 'Sign up', class: 'waves-effect waves-dark btn' %><a class="waves-effect waves-dark btn-plain modal-trigger" href="#plans-modal">Review Other Plans</a>
         </div>
       </div>
     <% end %>
@@ -41,3 +47,10 @@
 
 
 </div>
+<%= content_for :javascripts %>
+<script>
+  $(window).load(function(){
+    // Reveal modal after dust has settled ensuring smooth animation
+    $('.modal-trigger').leanModal();
+  });
+</script>

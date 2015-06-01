@@ -35,7 +35,7 @@
   }
 }
 
-.flip-with-form {
+.flip-with-out {
   transform: translateY(100%) rotateX(-100deg);
 
   transition: transform 0.5s ease-out;
@@ -52,12 +52,12 @@
   -o-transform-origin: left center;
   transform-origin: left center;
 
-  .reveal-form & {
+  .logged-out & {
     transform: translateY(0%) rotateX(0deg);
     transition-delay: 500ms;
   }
 }
-.reveal-with-form {
+.reveal-with-out {
   opacity: 0;
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
@@ -65,8 +65,36 @@
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
 
-  .reveal-form & {
+  .logged-out & {
     opacity: 1;
+  }
+}
+.reveal-with-in {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+
+  -webkit-transition: opacity 0.5s, visibility 0.5s;
+  -moz-transition: opacity 0.5s, visibility 0.5s;
+  -ms-transition: opacity 0.5s, visibility 0.5s;
+  -o-transition: opacity 0.5s, visibility 0.5s;
+  transition: opacity 0.5s, visibility 0.5s;
+
+  .logged-in & {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+  p {
+    text-align: center;
   }
 }
 .plan-overlay {

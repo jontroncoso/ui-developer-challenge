@@ -17,6 +17,7 @@ h2 {
   box-shadow: none;
   border-radius: 1px !important;
   text-transform: none !important;
+  line-height: 50px;
 }
 .btn {
   padding-left: 50px;
@@ -27,6 +28,8 @@ h2 {
   padding-bottom: 2rem;
 }
 form {
+  position: relative;
+
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -ms-perspective: 800px;
@@ -67,7 +70,7 @@ form {
     font-weight: 100;
   }
 
-  .reveal-form & {
+  .logged-out & {
     -webkit-transform: translateX(0%) rotateY(0deg);
     -moz-transform: translateX(0%) rotateY(0deg);
     -ms-transform: translateX(0%) rotateY(0deg);
@@ -116,7 +119,7 @@ form {
       transition-delay: 350ms, 0ms;
     }
   }
-  &:nth-child(even) {
+  &:nth-child(odd) {
     clear: left;
   }
 }
